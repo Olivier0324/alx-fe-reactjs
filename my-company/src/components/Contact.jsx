@@ -13,34 +13,20 @@ function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Thank you, ${formData.name}! We'll contact you soon.`);
-    setFormData({ name: '', email: '', message: '' });
+    alert('Form submitted!');
   };
 
   return (
-    <div style={{ 
-      padding: '20px',
-      maxWidth: '600px',
-      margin: '0 auto'
-    }}>
-      <h1 style={{ color: '#2c3e50' }}>Contact Us</h1>
-      <form onSubmit={handleSubmit} style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '15px'
-      }}>
+    <div style={{ padding: '20px' }}>
+      <h1>Contact Us</h1>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="name"
           placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
-          required
-          style={{
-            padding: '10px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          style={{ display: 'block', margin: '10px 0' }}
         />
         <input
           type="email"
@@ -48,40 +34,18 @@ function Contact() {
           placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
-          required
-          style={{
-            padding: '10px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          style={{ display: 'block', margin: '10px 0' }}
         />
         <textarea
           name="message"
           placeholder="Your Message"
           value={formData.message}
           onChange={handleChange}
-          required
-          rows="5"
-          style={{
-            padding: '10px',
-            borderRadius: '4px',
-            border: '1px solid #ddd'
-          }}
+          style={{ display: 'block', margin: '10px 0' }}
         />
-        <button type="submit" style={{
-          padding: '10px 20px',
-          backgroundColor: '#2c3e50',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          fontSize: '1rem'
-        }}>
-          Send Message
-        </button>
+        <button type="submit">Send Message</button>
       </form>
     </div>
   );
 }
-
 export default Contact;
