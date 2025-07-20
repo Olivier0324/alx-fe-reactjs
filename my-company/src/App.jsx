@@ -3,13 +3,13 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
-import Navbar from './components/NavBar.jsx';
 import Footer from './components/Footer'; // Optional
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+    <Navbar />
       <div style={{ minHeight: '80vh' }}>
         <Routes>
           <Route path="/" element={<Home />} />
