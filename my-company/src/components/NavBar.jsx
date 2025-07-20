@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import { Link } from 'react-router-dom';
 
 function Navbar() {
@@ -6,14 +5,28 @@ function Navbar() {
     <nav style={{
       backgroundColor: '#333',
       padding: '10px',
-      display: 'flex',
-      justifyContent: 'center',
-      gap: '20px'
+      marginBottom: '20px'
     }}>
-      <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
-      <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>About</Link>
-      <Link to="/services" style={{ color: 'white', textDecoration: 'none' }}>Services</Link>
-      <Link to="/contact" style={{ color: 'white', textDecoration: 'none' }}>Contact</Link>
+      <ul style={{
+        listStyle: 'none',
+        display: 'flex',
+        gap: '20px',
+        margin: 0,
+        padding: 0
+      }}>
+        <li>
+          <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>Home</Link>
+        </li>
+        <li>
+          <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>About</Link>
+        </li>
+        <li>
+          <Link to="/services" style={{ color: 'white', textDecoration: 'none' }}>Services</Link>
+        </li>
+        <li>
+          <Link to="/contact" style={{ color: 'white', textDecoration: 'none' }}>Contact</Link>
+        </li>
+      </ul>
     </nav>
   );
 }
