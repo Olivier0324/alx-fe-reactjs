@@ -35,15 +35,10 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <WelcomeMessage />
-      <Header />
+      <Header  />
       <MainContent />
       <Footer />
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
-      <Card name="DevTechies" desc="I always focus on coding....." age={20}  />
-      <Card name="Victor" desc="I always focus on coding....." age={14}  />
-      
-     
-
     </>
   )
 }
