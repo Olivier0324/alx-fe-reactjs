@@ -1,23 +1,27 @@
 import { useRecipeStore } from './recipeStore';
-import { Link } from 'react-router-dom';
+import FavoriteButton from './FavoriteButton';
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes);
-  const searchTerm = useRecipeStore((state) => state.searchTerm);
-
-  const filteredRecipes = recipes.filter((recipe) =>
-    recipe.title.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const recipes = useRecipeStore((state) => {
+    const searchTerm = state.searchTerm?.toLowerCase();
+    return searchTerm
+      ? state.recipes.filter((recipe) =>
+          recipe.title.toLowerCase().includes(searchTerm)
+        )
+      : state.recipes;
+  });
 
   return (
     <div>
-      {filteredRecipes.length === 0 ? (
+      <h2>All Recipes</h2>
+      {recipes.length === 0 ? (
         <p>No recipes found.</p>
       ) : (
-        filteredRecipes.map((recipe) => (
-          <div key={recipe.id}>
+        recipes.map((recipe) => (
+          <div key={recipe.id} style={{ border: '1px solid #ddd', margin: '1rem 0', padding: '1rem' }}>
             <h3>
-              <Link to={`/recipe/${recipe.id}`}>{recipe.title}</Link>
+              {recipe.title}
+              <FavoriteButton recipeId={recipe.id} />
             </h3>
             <p>{recipe.description}</p>
           </div>

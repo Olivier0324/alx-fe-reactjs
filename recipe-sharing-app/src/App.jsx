@@ -1,21 +1,28 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AddRecipeForm from './components/AddRecipeForm';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import RecipeList from './components/RecipeList';
-import SearchBar from './components/SearchBar';
-import RecipeDetailsWrapper from './components/RecipeDetailsWrapper'; // wraps RecipeDetails to extract route param
+import AddRecipeForm from './components/AddRecipeForm';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
 
 function App() {
   return (
     <Router>
-      <div style={{ maxWidth: '600px', margin: 'auto', padding: '1rem' }}>
-        <h1>Recipe Sharing App</h1>
-        <AddRecipeForm />
-        <SearchBar />
-        <RecipeList />
-        <Routes>
-          <Route path="/recipe/:id" element={<RecipeDetailsWrapper />} />
-        </Routes>
-      </div>
+      <nav>
+        <Link to="/">All Recipes</Link> |{' '}
+        <Link to="/favorites">Favorites</Link> |{' '}
+        <Link to="/recommendations">Recommendations</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={
+          <>
+            <AddRecipeForm />
+            <RecipeList />
+          </>
+        } />
+        <Route path="/favorites" element={<FavoritesList />} />
+        <Route path="/recommendations" element={<RecommendationsList />} />
+      </Routes>
     </Router>
   );
 }
