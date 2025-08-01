@@ -1,12 +1,69 @@
-# React + Vite
+# My Company Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a simple company website built with React and Vite. It features four main pages: Home, About, Services, and Contact.
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+my-company
+├── public
+│   └── favicon.ico
+├── src
+│   ├── components
+│   │   └── Navbar.jsx
+│   ├── pages
+│   │   ├── About.jsx
+│   │   ├── Contact.jsx
+│   │   ├── Home.jsx
+│   │   └── Services.jsx
+│   ├── App.jsx
+│   ├── main.jsx
+│   └── styles
+│       └── index.css
+├── package.json
+├── vite.config.js
+└── README.md
+```
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **Home Page**: A welcome message and brief description of the company.
+- **About Page**: Information about the company's history and specialization.
+- **Services Page**: A list of services offered by the company.
+- **Contact Page**: A contact form for inquiries.
+
+## Getting Started
+
+To get started with this project, follow these steps:
+
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   ```
+
+2. Navigate to the project directory:
+   ```
+   cd my-company
+   ```
+
+3. Install the dependencies:
+   ```
+   npm install
+   ```
+
+4. Start the development server:
+   ```
+   npm run dev
+   ```
+
+5. Open your browser and go to `http://localhost:3000` to view the website.
+
+## Technologies Used
+
+- React
+- Vite
+- React Router DOM
+
+## License
+
+This project is open-source and available under the MIT License.

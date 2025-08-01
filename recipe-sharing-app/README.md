@@ -1,34 +1,12 @@
-# 🍽️ Recipe Sharing App
+# React + Vite
 
-A dynamic recipe sharing application built with **React**, **Zustand**, and **React Router**, developed as part of the **ALX Frontend Specialization (React Track)**. This project demonstrates modular architecture, modern state management, and essential routing and filtering logic.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
----
+Currently, two official plugins are available:
 
-## 👨‍💻 Developed By
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-**Developer:** LittleTechie  
-**Role:** React Developer (ALX Cohort Contributor)  
-**Project Repo:** [alx-fe-reactjs/recipe-sharing-app](https://github.com/Olivier0324/alx-fe-reactjs/tree/main/recipe-sharing-app)  
-**Track:** ALX Software Engineering – Frontend (React)
+## Expanding the ESLint configuration
 
----
-
-## 🚀 Features
-
-- ✅ Add and manage custom recipes via a form
-- ✅ Display all added recipes in a clean, responsive list
-- ✅ Mark/unmark recipes as **favorites**
-- ✅ Navigate between **Home** and **Favorites** via routing
-- ✅ Filter recipes based on search input
-- ✅ View only favorited recipes on a separate page
-- ✅ State persisted and shared globally using Zustand
-
----
-
-## 🛠️ Getting Started
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/Olivier0324/alx-fe-reactjs
-   cd alx-fe-reactjs/recipe-sharing-app
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

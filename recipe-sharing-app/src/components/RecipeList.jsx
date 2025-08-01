@@ -1,33 +1,30 @@
-import { useRecipeStore } from './recipeStore';
-import FavoriteButton from './FavoriteButton';
+﻿import React, { useEffect } from 'react';
+import { useRecipeStore } from '../recipeStore';
+import { Link } from 'react-router-dom'; // ✅ import Link
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => {
-    const searchTerm = state.searchTerm?.toLowerCase();
-    return searchTerm
-      ? state.recipes.filter((recipe) =>
-          recipe.title.toLowerCase().includes(searchTerm)
-        )
-      : state.recipes;
-  });
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes);
+  const initializeFilteredRecipes = useRecipeStore(state => state.initializeFilteredRecipes);
+
+  useEffect(() => {
+    initializeFilteredRecipes();
+  }, [initializeFilteredRecipes]);
+
+  if (!filteredRecipes.length) {
+    return <p>No recipes found.</p>;
+  }
 
   return (
-    <div>
-      <h2>All Recipes</h2>
-      {recipes.length === 0 ? (
-        <p>No recipes found.</p>
-      ) : (
-        recipes.map((recipe) => (
-          <div key={recipe.id} style={{ border: '1px solid #ddd', margin: '1rem 0', padding: '1rem' }}>
-            <h3>
-              {recipe.title}
-              <FavoriteButton recipeId={recipe.id} />
-            </h3>
-            <p>{recipe.description}</p>
-          </div>
-        ))
-      )}
-    </div>
+    <ul>
+      {filteredRecipes.map(recipe => (
+        <li key={recipe.id}>
+          {/* ✅ Link to individual recipe details */}
+          <Link to={`/recipes/${recipe.id}`} style={{ textDecoration: 'none', color: 'blue' }}>
+            {recipe.title}
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 };
 

@@ -1,14 +1,15 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Services from './components/Services';
-import Contact from './components/Contact';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 
-function App() {
+const Home = () => <h1>Home Page</h1>;
+const About = () => <h1>About Page</h1>;
+const Services = () => <h1>Services Page</h1>;
+const Contact = () => <h1>Contact Page</h1>;
+
+const App = () => {
   return (
-    <BrowserRouter>
+    <Router>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -16,9 +17,8 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
-      <Footer/>
-    </BrowserRouter>
+    </Router>
   );
-}
+};
 
 export default App;
