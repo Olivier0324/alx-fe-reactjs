@@ -1,31 +1,22 @@
 import { useState } from "react";
 
 export default function RegistrationForm() {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
-
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!formData.username || !formData.email || !formData.password) {
+    if (!username || !email || !password) {
       setError("All fields are required.");
       return;
     }
 
     setError("");
-    console.log("Form Submitted:", formData);
-    // Simulate API call here later
+    console.log("Form Submitted:", { username, email, password });
+    // Simulate API call later
   };
 
   return (
@@ -42,8 +33,8 @@ export default function RegistrationForm() {
           type="text"
           name="username"
           placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
+          value={username}                
+          onChange={(e) => setUsername(e.target.value)}
           className="border rounded w-full p-2 mb-3"
         />
 
@@ -51,8 +42,8 @@ export default function RegistrationForm() {
           type="email"
           name="email"
           placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
+          value={email}                   
+          onChange={(e) => setEmail(e.target.value)}
           className="border rounded w-full p-2 mb-3"
         />
 
@@ -60,8 +51,8 @@ export default function RegistrationForm() {
           type="password"
           name="password"
           placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}                
+          onChange={(e) => setPassword(e.target.value)}
           className="border rounded w-full p-2 mb-3"
         />
 
