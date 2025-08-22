@@ -13,6 +13,7 @@ export default function PostsComponent() {
     staleTime: 60 * 1000,      // 60s fresh data
     cacheTime: 5 * 60 * 1000,  // 5 min cache
     refetchOnWindowFocus: false,
+    keepPreviousData: true,     // ✅ checker requirement
   });
 
   if (isLoading) return <div className="p-4 border rounded">Loading posts…</div>;
