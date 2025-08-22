@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import TodoList from "../src/components/TodoList";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-   <h1 className='text-8xl'>Hello</h1>
-  )
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+      <TodoList />
+    </div>
+  );
 }
 
-export default App
+export default App;
