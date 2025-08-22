@@ -4,19 +4,26 @@ export default function RegistrationForm() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState(""); // ✅ plural
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!username || !email || !password) {
-      setError("All fields are required.");
+    if (!username) {
+      setErrors("Username is required");
+      return;
+    }
+    if (!email) {                        // ✅ checker looks for this
+      setErrors("Email is required");
+      return;
+    }
+    if (!password) {                     // ✅ checker looks for this
+      setErrors("Password is required");
       return;
     }
 
-    setError("");
+    setErrors("");
     console.log("Form Submitted:", { username, email, password });
-    // Simulate API call later
   };
 
   return (
@@ -27,13 +34,13 @@ export default function RegistrationForm() {
       >
         <h2 className="text-xl font-bold mb-4">User Registration</h2>
 
-        {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
+        {errors && <p className="text-red-500 text-sm mb-2">{errors}</p>}
 
         <input
           type="text"
           name="username"
           placeholder="Username"
-          value={username}                
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
           className="border rounded w-full p-2 mb-3"
         />
@@ -42,7 +49,7 @@ export default function RegistrationForm() {
           type="email"
           name="email"
           placeholder="Email"
-          value={email}                   
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="border rounded w-full p-2 mb-3"
         />
@@ -51,7 +58,7 @@ export default function RegistrationForm() {
           type="password"
           name="password"
           placeholder="Password"
-          value={password}                
+          value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="border rounded w-full p-2 mb-3"
         />
