@@ -1,8 +1,10 @@
+import FormikForm from "./components/formikForm";
+import RegistrationForm from "./components/RegistrationForm";
+
 function App() {
   return (
-    <div className="text-[100px] text-center">
-      Hello world
-   </div>
+    //  <RegistrationForm/>
+    <FormikForm/>
   )
 }
 
