@@ -1,6 +1,7 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import TodoList from "../components/TodoList";
+import TodoList from "../components/TodoList.jsx";
 
 describe("TodoList Component", () => {
   test("renders initial todos", () => {
@@ -15,10 +16,10 @@ describe("TodoList Component", () => {
     const input = screen.getByPlaceholderText("Add a new todo");
     const addButton = screen.getByText("Add");
 
-    fireEvent.change(input, { target: { value: "New Todo" } });
+    fireEvent.change(input, { target: { value: "New Task" } });
     fireEvent.click(addButton);
 
-    expect(screen.getByText("New Todo")).toBeInTheDocument();
+    expect(screen.getByText("New Task")).toBeInTheDocument();
   });
 
   test("toggles a todo", () => {
@@ -26,9 +27,10 @@ describe("TodoList Component", () => {
     const todoItem = screen.getByText("Learn React");
 
     fireEvent.click(todoItem);
-    expect(todoItem).toHaveClass("line-through");
+    expect(todoItem).toHaveStyle("text-decoration: line-through");
+
     fireEvent.click(todoItem);
-    expect(todoItem).not.toHaveClass("line-through");
+    expect(todoItem).toHaveStyle("text-decoration: none");
   });
 
   test("deletes a todo", () => {
